@@ -27,6 +27,7 @@
       <img src="https://www.vectorlogo.zone/logos/centos/centos-icon.svg" alt="centos" width="60" height="50"/>
       <img src="https://https://www.vectorlogo.zone/logos/dnsnetworksca/dnsnetworksca-ar21~bgwhite.svg" alt="Net" width="60" height="50"/>
 
+---
 
 <!--START_SECTION:waka-->
 
