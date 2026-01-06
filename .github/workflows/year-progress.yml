@@ -58,7 +58,7 @@ jobs:
           # 执行脚本
           python calculate_progress.py
 
-      # 4. 提交并推送修改到仓库
+      # 4. 提交并推送修改到仓库（修改后的授权版本）
       - name: 提交更新
         run: |
           git config --global user.name "GitHub Action"
@@ -66,4 +66,5 @@ jobs:
           git add README.md
           # 只有文件有修改时才提交
           git diff --quiet && git diff --staged --quiet || git commit -m "🤖 自动更新年度进度条: $(date +'%Y-%m-%d')"
-          git push
+          # 关键修改：用 GITHUB_TOKEN 授权推送
+          git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
