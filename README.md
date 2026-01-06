@@ -25,7 +25,7 @@
       <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="microsoft" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/docker/docker-official.svg" alt="docker" width="60" height="50"/>
       <img src="https://www.vectorlogo.zone/logos/centos/centos-icon.svg" alt="centos" width="60" height="50"/>
-      <img src="https://https://www.vectorlogo.zone/logos/dnsnetworksca/dnsnetworksca-ar21~bgwhite.svg" alt="Net" width="60" height="50"/>
+      <img src="https://www.vectorlogo.zone/logos/dnsnetworksca/dnsnetworksca-ar21~bgwhite.svg" alt="Net" width="60" height="50"/>
 
 ---
 
@@ -33,7 +33,7 @@
 
 <!--END_SECTION:waka-->
 
-⏳ **年度进度条:** { ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ } 1.39% 掐表结算 ⏰ 6-Jan-2026
+⏳ **年度进度条:** { ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ } <!--YEAR_PROGRESS_PERCENT--> 掐表结算 ⏰ <!--YEAR_PROGRESS_DATE-->
 
 ---
 
