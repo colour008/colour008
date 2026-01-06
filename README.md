@@ -19,20 +19,14 @@
 - 🧑‍💻 正在学习中 :
 
 <p align="center">
-      <img src="https://www.vectorlogo.zone/logos/linux/linux-icon.svg" alt="linux" width="65" height="65"/> 
-      <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT" width="55" height="55"/> 
+      <img src="https://www.vectorlogo.zone/logos/linux/linux-icon.svg" alt="linux" width="65" height="65"/>
+      <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg" alt="ubuntu" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="microsoft" width="55" height="55"/>
       <img src="https://www.vectorlogo.zone/logos/docker/docker-official.svg" alt="docker" width="60" height="50"/>
       <img src="https://www.vectorlogo.zone/logos/centos/centos-icon.svg" alt="centos" width="60" height="50"/>
       <img src="https://https://www.vectorlogo.zone/logos/dnsnetworksca/dnsnetworksca-ar21~bgwhite.svg" alt="Net" width="60" height="50"/>
 
-
-
----
-### <img src='https://media1.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif?cid=ecf05e47x2g034i9pzwtzzsd3xgg2w9nr94t4tflbbgo3008&rid=giphy.gif' width='25' /> 我的Github Stats:
-[![colour008-github](https://github-readme-stats.vercel.app/api?username=[![Lorin-github](https://github-readme-stats.vercel.app/api?username=Lorin-github)](https://github.com/anuraghazra/github-readme-stats))](https://github.com/anuraghazra/github-readme-stats)
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=colour008&theme=dark)](https://git.io/streak-stats)
 
 <!--START_SECTION:waka-->
 
@@ -44,6 +38,4 @@
 
 ### <img src="https://bu.dusays.com/2026/01/06/695d0c86eb5d5.gif" alt="hmm" width ='29'/> 人生格言
 * <span style="font-style:italic; text-decoration:underline; color:#0066CC;">有志者，事竟成！— Where there's a will, there's a way!</span>
-
-
 
