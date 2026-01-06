@@ -1,16 +1,40 @@
+name: 更新年度进度条
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天UTC0点运行
+  workflow_dispatch:     # 手动触发
+
+permissions:
+  contents: write  # 显式授权写入
+  pull-requests: write
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0  # 拉取完整历史，避免分支问题
+
+      - name: 设置Python环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 打印当前目录和文件（排查路径）
+        run: |
+          pwd
+          ls -la  # 确认README.md存在
+          cat README.md | grep "年度进度条"  # 确认标记存在
+
       - name: 计算并更新年度进度
         run: |
-          # 写入脚本（使用绝对路径）
+          # 写入脚本（增加日志）
           cat > calculate_progress.py << 'EOF'
           import datetime
           import re
-          import os
-
-          # 获取Action的工作目录（绝对路径）
-          work_dir = os.getcwd()
-          readme_path = os.path.join(work_dir, "README.md")
-          print(f"README路径：{readme_path}")
-          print(f"文件是否存在：{os.path.exists(readme_path)}")
 
           today = datetime.date.today()
           year = today.year
@@ -19,15 +43,15 @@
           progress_percent = round((days_passed / total_days) * 100, 2)
           date_str = today.strftime("%d-%b-%Y")
 
-          # 打印计算结果
+          # 打印计算结果（方便排查）
           print(f"计算的进度：{progress_percent}%")
           print(f"计算的日期：{date_str}")
 
-          # 读取README（绝对路径）
-          with open(readme_path, "r", encoding="utf-8") as f:
+          # 读取README（指定编码，避免乱码）
+          with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
 
-          # 检查标记
+          # 检查标记是否存在
           if '<!--YEAR_PROGRESS_PERCENT-->' not in content:
               print("错误：没找到 <!--YEAR_PROGRESS_PERCENT--> 标记！")
               exit(1)
@@ -35,16 +59,16 @@
               print("错误：没找到 <!--YEAR_PROGRESS_DATE--> 标记！")
               exit(1)
 
-          # 替换标记
+          # 执行替换
           content = re.sub(r'<!--YEAR_PROGRESS_PERCENT-->', f'{progress_percent}%', content)
           content = re.sub(r'<!--YEAR_PROGRESS_DATE-->', date_str, content)
 
-          # 写入README（绝对路径）
-          with open(readme_path, "w", encoding="utf-8") as f:
+          # 写入文件
+          with open("README.md", "w", encoding="utf-8") as f:
               f.write(content)
 
           # 验证替换结果
-          with open(readme_path, "r", encoding="utf-8") as f:
+          with open("README.md", "r", encoding="utf-8") as f:
               new_content = f.read()
           print("替换后的进度条行：")
           for line in new_content.split("\n"):
@@ -52,5 +76,19 @@
                   print(line)
           EOF
 
-          # 执行脚本
+          # 执行脚本并打印日志
           python calculate_progress.py
+
+      - name: 配置Git并推送
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # 打印Git状态（排查是否有修改）
+          git status
+
+          git add README.md
+          # 提交并推送（强制提交，避免空判断问题）
+          git commit -m "🤖 自动更新年度进度条: $(date +'%Y-%m-%d')" || echo "无修改无需提交"
+          git push origin main -f  # 强制推送（仅用于测试，后续可去掉-f）

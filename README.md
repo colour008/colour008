@@ -29,9 +29,6 @@
 
 ---
 
-<!--START_SECTION:waka-->
-
-<!--END_SECTION:waka-->
 
 ⏳ **年度进度条:** { ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ } <!--YEAR_PROGRESS_PERCENT--> 掐表结算 ⏰ <!--YEAR_PROGRESS_DATE-->
 
