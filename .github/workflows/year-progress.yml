@@ -1,0 +1,69 @@
+name: 更新年度进度条
+on:
+  # 每天凌晨 0 点自动运行（UTC 时间，对应北京时间早 8 点）
+  schedule:
+    - cron: '0 0 * * *'
+  # 也可以手动触发（可选）
+  workflow_dispatch:
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 克隆你的仓库到服务器
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+
+      # 2. 安装 Python（用来计算进度）
+      - name: 设置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. 运行计算脚本，更新 README
+      - name: 计算并更新年度进度
+        run: |
+          # 编写 Python 计算脚本（临时文件）
+          cat > calculate_progress.py << 'EOF'
+          import datetime
+          import re
+
+          # 获取当前日期和全年天数
+          today = datetime.date.today()
+          year = today.year
+          # 判断是否是闰年
+          if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+              total_days = 366
+          else:
+              total_days = 365
+          # 计算已过天数和百分比（保留两位小数）
+          days_passed = (today - datetime.date(year, 1, 1)).days + 1
+          progress_percent = round((days_passed / total_days) * 100, 2)
+          # 格式化日期（比如 6-Jan-2026）
+          date_str = today.strftime("%d-%b-%Y")
+
+          # 读取 README 文件
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+
+          # 替换百分比和日期标记
+          content = re.sub(r'<!--YEAR_PROGRESS_PERCENT-->', f'{progress_percent}%', content)
+          content = re.sub(r'<!--YEAR_PROGRESS_DATE-->', date_str, content)
+
+          # 写回 README 文件
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(content)
+          EOF
+
+          # 执行脚本
+          python calculate_progress.py
+
+      # 4. 提交并推送修改到仓库
+      - name: 提交更新
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add README.md
+          # 只有文件有修改时才提交
+          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 自动更新年度进度条: $(date +'%Y-%m-%d')"
+          git push
