@@ -1,6 +1,6 @@
 # Hi ，我是colour008!<img align ='center' src='https://bu.dusays.com/2026/01/06/695d08c047adb.gif' width ='50' />
 
-----
+
 
 <p align="center">
 <a href="https://colour008.eu.org" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@16.4.0/icons/hexo.svg" alt="blog" height="50" width="50" />我的博客</a>&nbsp;&nbsp;&nbsp;&nbsp;
