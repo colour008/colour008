@@ -31,7 +31,7 @@ jobs:
 
       - name: 计算并更新年度进度
         run: |
-          # 写入脚本（增加日志）
+          # 写入脚本（修复标记被覆盖问题，核心修改）
           cat > calculate_progress.py << 'EOF'
           import datetime
           import re
@@ -51,17 +51,43 @@ jobs:
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
 
-          # 检查标记是否存在
-          if '<!--YEAR_PROGRESS_PERCENT-->' not in content:
-              print("错误：没找到 <!--YEAR_PROGRESS_PERCENT--> 标记！")
-              exit(1)
-          if '<!--YEAR_PROGRESS_DATE-->' not in content:
-              print("错误：没找到 <!--YEAR_PROGRESS_DATE--> 标记！")
-              exit(1)
+          # ========== 核心修改1：兼容新旧标记，优先用包裹式标记 ==========
+          # 第一步：检查是否已有包裹式标记（第一次运行时可能没有，先初始化）
+          has_progress_wrap = '<!--PROGRESS_START-->' in content and '<!--PROGRESS_END-->' in content
+          has_date_wrap = '<!--DATE_START-->' in content and '<!--DATE_END-->' in content
 
-          # 执行替换
-          content = re.sub(r'<!--YEAR_PROGRESS_PERCENT-->', f'{progress_percent}%', content)
-          content = re.sub(r'<!--YEAR_PROGRESS_DATE-->', date_str, content)
+          if not has_progress_wrap or not has_date_wrap:
+              # 初始化包裹式标记（替换原来的一次性标记）
+              content = re.sub(
+                  r'<!--YEAR_PROGRESS_PERCENT-->',
+                  f'<!--PROGRESS_START-->{progress_percent}%<!--PROGRESS_END-->',
+                  content
+              )
+              content = re.sub(
+                  r'<!--YEAR_PROGRESS_DATE-->',
+                  f'<!--DATE_START-->{date_str}<!--DATE_END-->',
+                  content
+              )
+              print("初始化包裹式标记完成")
+          else:
+              # 已有包裹式标记，只替换中间的数值（保留标记）
+              content = re.sub(
+                  r'<!--PROGRESS_START-->.*?<!--PROGRESS_END-->',
+                  f'<!--PROGRESS_START-->{progress_percent}%<!--PROGRESS_END-->',
+                  content
+              )
+              content = re.sub(
+                  r'<!--DATE_START-->.*?<!--DATE_END-->',
+                  f'<!--DATE_START-->{date_str}<!--DATE_END-->',
+                  content
+              )
+              print("更新包裹式标记内的数值完成")
+
+          # ========== 核心修改2：兼容检查，避免脚本退出 ==========
+          # 兜底检查：确保至少有一个标记存在
+          if not has_progress_wrap and '<!--YEAR_PROGRESS_PERCENT-->' not in content:
+              print("警告：未找到进度相关标记，请检查README中的进度条行格式！")
+              # 不退出，仅警告，避免脚本中断
 
           # 写入文件
           with open("README.md", "w", encoding="utf-8") as f:
