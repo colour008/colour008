@@ -22,7 +22,7 @@
 ---
 
 
-⏳ **年度进度条:** { ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ } <!--PROGRESS_START-->4.93%<!--PROGRESS_END--> 截至 ⏰ <!--DATE_START-->18-Jan-2026<!--DATE_END-->
+⏳ **年度进度条:** { ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ } <!--PROGRESS_START-->5.21%<!--PROGRESS_END--> 截至 ⏰ <!--DATE_START-->19-Jan-2026<!--DATE_END-->
 
 ----
 <p align="center">
