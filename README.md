@@ -19,11 +19,6 @@
       <img src="https://www.vectorlogo.zone/logos/dnsnetworksca/dnsnetworksca-ar21~bgwhite.svg" alt="Net" width="60" height="50"/>&nbsp;&nbsp;
 </p>
 
----
-
-
-⏳ **年度进度条:** { ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ } <!--PROGRESS_START-->7.4%<!--PROGRESS_END--> 截至 ⏰ <!--DATE_START-->27-Jan-2026<!--DATE_END-->
-
 ----
 <p align="center">
 <a href="https://colour008.eu.org" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@16.4.0/icons/hexo.svg" alt="blog" height="50" width="50" />我的博客</a>&nbsp;&nbsp;&nbsp;&nbsp;
