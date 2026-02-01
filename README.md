@@ -1,4 +1,4 @@
-### Hi ，我是colour008!  <img src="https://bu.dusays.com/2026/01/06/695d09164c133.gif" alt="Developer" width="45"/>
+## Hi ，我是colour008!   <img src="https://bu.dusays.com/2026/01/06/695d09164c133.gif" alt="Developer" width="45"/>
 
 - 👨‍💻 一名沉迷**计算机 + 网络通信 + 编程 + 软硬件**知识的野生菜鸟选手
 - 🖥️ 日常和 **Linux** 死磕，跟 **Windows** 较劲，代码写得全靠注释续命
