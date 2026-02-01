@@ -1,5 +1,4 @@
-## Hi ，我是colour008!<img src="https://bu.dusays.com/2026/01/06/695d09164c133.gif" alt="Developer" width="45"/>
-
+### Hi ，我是colour008!<img src="https://bu.dusays.com/2026/01/06/695d09164c133.gif" alt="Developer" width="45"/>
 - 👨‍💻 一名沉迷**计算机 + 网络通信 + 编程 + 软硬件**知识的野生菜鸟选手
 - 🖥️ 日常和 **Linux** 死磕，跟 **Windows** 较劲，代码写得全靠注释续命
 - 📚 左手啃网络配置手册，右手翻编程入门教程，主打一个边学边踩坑
@@ -7,13 +6,9 @@
 - 💬 聊**计算机网络**、**Linux 运维**、**编程趣事**都能唠，别问，问就是还在新手村练级
 - ⚡ 冷知识：能看懂设备指示灯闪烁，就觉得自己离大佬又近了一步
 - 📖 正在学习中 :
-
 <p align="center">
       <img src="https://www.vectorlogo.zone/logos/microsoft/microsoft-icon.svg" alt="microsoft" width="50" height="50"/>&nbsp;&nbsp;
       <img src="https://www.vectorlogo.zone/logos/linux/linux-icon.svg" alt="linux" width="60" height="60"/>&nbsp;&nbsp;
-      <img src="https://www.vectorlogo.zone/logos/centos/centos-icon.svg" alt="centos" width="60" height="60"/>&nbsp;&nbsp;
-      <img src="https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg" alt="ubuntu" width="55" height="55"/>&nbsp;&nbsp;
       <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="GIT" width="55" height="55"/>&nbsp;&nbsp;
       <img src="https://www.vectorlogo.zone/logos/docker/docker-official.svg" alt="docker" width="60" height="50"/>&nbsp;&nbsp;
-      <img src="https://www.vectorlogo.zone/logos/dnsnetworksca/dnsnetworksca-ar21~bgwhite.svg" alt="Net" width="60" height="50"/>&nbsp;&nbsp;
 </p>
